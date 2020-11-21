@@ -14,6 +14,7 @@
         </div>
         <div>
           <h3>Please Log In</h3>
+          <form action="" method="">
             <div>
               <input type="text" name="email" placeholder="Email">
             </div>
@@ -28,6 +29,7 @@
                 <a href="#">Forgot password?</a>
               </small>
             </div>
+            </form>
         </div>
       </section>
     </section>
@@ -38,28 +40,15 @@ export default {
 }
 </script>
 <style scoped>
-template {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-}
 
-template {
-    background-color: #0277bd;
-    color: #263238;
-}
-
-a {
-    color: #40c4ff;
-}
 .login-page {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #01579b;
+    margin: auto auto;
+    padding: 50px 0px 15px 0px;
 }
 
 #login-container {
@@ -72,23 +61,13 @@ a {
     background-color: #ffffff;
     box-shadow: 0 0 15px rgba(38, 50, 56, 0.33);
     text-align: center;
+
+    
 }
 
 #login-container form div > input {
     padding: 8px 16px;
     margin: 4px 0;
 }
-button {
-    padding: 8px 16px;
-    margin: 4px 0;
-    color: #ffffff;
-    background-color: #01579b;
-    border: none;
-    border-radius: 4px;
-}
 
-button:hover {
-    box-shadow: 0 0 5px rgba(38, 50, 56, 0.7);
-    cursor: pointer;
-}
 </style>
