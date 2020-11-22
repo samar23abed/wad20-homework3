@@ -6,11 +6,12 @@
 
 <script>
 //import Login from './components/Login.vue'
+//import Browse from './components/Browse.vue'
+
 
 export default {
   name: 'App',
   components: {
-
   }
 }
 </script>
