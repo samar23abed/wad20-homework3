@@ -33,15 +33,6 @@ a {
     color: #40c4ff;
 }
 
-#app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-}
-
 button {
     padding: 8px 16px;
     margin: 4px 0;
