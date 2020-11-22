@@ -6,7 +6,7 @@
           <img :src="res/images/logo.png" alt="postIt">
         </div>
         <div :class="search-container">
-          <input :type="text" name="search"><button type="button">Search</button>
+          <input type="text"><button>Search</button>
         </div>
         <div :class="avatar-container">
           <img :class="avatar">
@@ -27,9 +27,9 @@
     </header>
     <section :class="profile-container">
       <div :class="profile" v-for="(profile,index) in profiles" :key="index">
-        <!--<img :src={{profile.avatar}} alt="profile picture"  :class = "profile-picture">-->
+        <img :src=profile.avatar @error="profilePicture"  :class = "profile-picture">
         <h3>{{ profile.firstname }} {{ profile.lastname }}</h3>
-        <button name="follow" :class = "follow-button">Follow</button>
+        <button :name="follow" :class = "follow-button">Follow</button>
       </div>
     </section>
   </section>
