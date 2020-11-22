@@ -1,43 +1,41 @@
 <template>
-  <div>
-    <Navbar />
-    <section class="profile-container">
-      <div class="profile" v-for="(profile,index) in profiles" :key="index">
-        <img alt="profile picture"  class = "profile-picture" :src="profile.avatar">
-        <h3>{{ profile | name}} </h3>
-        <FollowButton/>
-      </div>
-    </section>
-  </div>
+    <div>
+        <Navbar />
+        <section class="profile-container">
+            <div class="profile" v-for="(profile, index) in profiles" :key="index">
+                <img alt="profile picture" class="profile-picture" :src="profile.avatar" />
+                <h3>{{ profile | name }}</h3>
+                <FollowButton />
+            </div>
+        </section>
+    </div>
 </template>
 
 <script>
-import Navbar from "@/components/Navbar";
-import FollowButton from "@/components/FollowButton";
+import Navbar from '@/components/Navbar';
+import FollowButton from '@/components/FollowButton';
 import '../filters';
 
 export default {
-  name: 'Browse',
-  components: {FollowButton, Navbar},
-  data() {
-        return{
-          follow: false
-        }
+    name: 'Browse',
+    components: { FollowButton, Navbar },
+    data() {
+        return {
+            follow: false,
+        };
     },
-  computed: {
-    profiles() {
-      return this.$store.state.profiles;
+    computed: {
+        profiles() {
+            return this.$store.state.profiles;
+        },
     },
-  },
-  mounted() {
-    this.$store.dispatch('getProfiles');
-  },
+    mounted() {
+        this.$store.dispatch('getProfiles');
+    },
 };
 </script>
 
 <style scoped>
-
-
 .profile-container {
     width: 50%;
     min-height: 100%;
@@ -65,5 +63,4 @@ export default {
     object-position: top;
     margin: 5px;
 }
-
 </style>

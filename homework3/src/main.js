@@ -4,7 +4,7 @@ import VueRouter from 'vue-router';
 import Vuex from 'vuex';
 import Login from '@/components/Login';
 import Index from '@/components/Index';
-import Browse from "@/components/Browse";
+import Browse from '@/components/Browse';
 import store from './store';
 
 Vue.config.productionTip = false;
