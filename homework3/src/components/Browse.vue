@@ -4,8 +4,8 @@
     <section class="profile-container">
       <div class="profile" v-for="(profile,index) in profiles" :key="index">
         <img alt="profile picture"  class = "profile-picture" :src="profile.avatar">
-        <h3>{{ profile.firstname }} {{ profile.lastname }}</h3>
-        <button name="follow" class = "follow-button" @click="followProfile">Follow</button>
+        <h3>{{ profile | name}} </h3>
+        <FollowButton/>
       </div>
     </section>
   </div>
@@ -13,21 +13,17 @@
 
 <script>
 import Navbar from "@/components/Navbar";
+import FollowButton from "@/components/FollowButton";
+import '../filters';
 
 export default {
   name: 'Browse',
-  components: {Navbar},
+  components: {FollowButton, Navbar},
   data() {
         return{
           follow: false
         }
     },
-  methods: {
-    followProfile(){
-      
-    }
-  },
-
   computed: {
     profiles() {
       return this.$store.state.profiles;
@@ -70,18 +66,4 @@ export default {
     margin: 5px;
 }
 
-.follow-button {
-  padding: 8px 16px;
-  margin: 4px 0;
-  color: #ffffff;
-  background-color: #75048b;
-  border: none;
-  border-radius: 4px;
-}
-
-.follow-button.followed {
-  color: #75048b;
-  background-color: #ffffff;
-  border: 1px solid #75048b;
-}
 </style>
