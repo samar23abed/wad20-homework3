@@ -1,17 +1,49 @@
 <template>
-    <div>
-        <Navbar />
-        <section class="main-container"></section>
-    </div>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="../assets/logo.png" alt="sticker" />
+            </div>
+            <div class="search-container"><input type="text" name="search" /><button type="button">Search</button></div>
+            <div class="avatar-container">
+                <img class="avatar" @click="toggleDropdown" />
+                <div class="drop-down-container" :style="{ display: open ? 'block' : 'none' }">
+                    <span id="user-name">John Doe</span>
+                    <span id="user-email"></span>
+                    <span class="separator"></span>
+                    <span>
+                        <router-link to="/browse"> Browse</router-link>
+                    </span>
+                    <span class="separator"></span>
+                    <span>
+                        <router-link to="/"> Log Out</router-link>
+                    </span>
+                </div>
+            </div>
+        </nav>
+    </header>
 </template>
 
 <script>
-import Navbar from './Navbar';
+import API from '../api';
 
 export default {
-    name: 'Index',
-    components: {
-        Navbar,
+    name: 'Navbar',
+    methods: {
+        toggleDropdown: function () {
+            this.open = !this.open;
+        },
+    },
+    data: function () {
+        return {
+            open: false,
+        };
+    },
+    created: function () {
+        console.log('Created!');
+        API.getUserInfo().then((userInfo) => {
+            console.log(userInfo.data);
+        });
     },
 };
 </script>
