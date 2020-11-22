@@ -6,9 +6,9 @@
             </div>
             <div class="search-container"><input type="text" name="search" /><button type="button">Search</button></div>
             <div class="avatar-container">
-                <img class="avatar" @click="toggleDropdown" />
+                <img class="avatar" @click="toggleDropdown" :src="userInfo.avatar" />
                 <div class="drop-down-container" :style="{ display: open ? 'block' : 'none' }">
-                    <span id="user-name">John Doe</span>
+                    <span id="user-name">{{ userInfo.firstname }} {{ userInfo.lastname }}</span>
                     <span id="user-email"></span>
                     <span class="separator"></span>
                     <span>
@@ -25,8 +25,6 @@
 </template>
 
 <script>
-import API from '../api';
-
 export default {
     name: 'Navbar',
     methods: {
@@ -39,11 +37,14 @@ export default {
             open: false,
         };
     },
-    created: function () {
-        console.log('Created!');
-        API.getUserInfo().then((userInfo) => {
-            console.log(userInfo.data);
-        });
+
+    computed: {
+        userInfo() {
+            return this.$store.state.userInfo;
+        },
+    },
+    mounted() {
+        this.$store.dispatch('getUserInfo');
     },
 };
 </script>
